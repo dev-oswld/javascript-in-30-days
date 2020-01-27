@@ -1,2 +1,3 @@
-# javascript-in-30-days
-30 day vanilla JS
+# 30 days vanilla Javascript :icecream:
+
+**Free course** [here.](https://javascript30.com/)
