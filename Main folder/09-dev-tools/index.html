@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×Fancy×Logs×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    console.log('I´m learning'); //Regular
+    console.log('Hello from my %s heart!', '♥', '| See you'); //Interpolated
+    console.log('%c CSS rocks!s', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue') //Styled with so much CSS
+    console.warn('OH NOOO'); //Warning!
+    console.error('ERROR!'); //Error
+    console.info('Some text in yellow, no work :('); //Info
+    const p = document.querySelector('p'); //Testing
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+    console.log('DOM elements =>', p); // Viewing DOM Elements (HTML)
+    console.dir(p);
+    console.log('%c Awesome trick', 'fontSize: 5px; background: orange;');
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    }); //Grouping together
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve'); //Counting
+    //Timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/dev-oswld')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+    //console.clear(); //Clearing
+  </script>
+</body>
+</html>
